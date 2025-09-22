@@ -33,10 +33,10 @@ z3-3.php?lang=Ru&color=[назв-е цвета]
         case "en": 
             En($color);
             break;
-        case "Fr": 
+        case "fr": 
             Fr($color);
             break;
-        case "De":
+        case "de":
             De($color);
             break;
         default:

@@ -14,33 +14,56 @@
 
 (Использовать листинги 9-1 - 9-10). -->
 
-<html> <head>
-<title> Task 2.7 </title>
-</head> 
+<html>
+<head>
+    <title>Ассоциативный массив - сортировка</title>
+</head>
 <body>
+<?php
+// 1. Создание массива
+$cust = [
+    "cnum"   => 2001,
+    "cname"  => "Hoffman",
+    "city"   => "London",
+    "snum"   => 1001,
+    "rating" => 100
+];
 
-    <?php
-        function print_array($arr) {
-            foreach ($arr as $key=>$value) {
-                print "$key: $value; ";
-            }
-            print "<hr/>";
-        }
+// Вывод исходного массива
+echo "<b>Исходный массив:</b><br>";
+foreach ($cust as $key => $value) {
+    echo "$key => $value<br>";
+}
+echo "<br>";
 
-        $cust = array (
-            'cnum' => 2001,
-            'cname' => "Hoffman",
-            'city' => "London",
-            'snum' => 1001,
-            'rating' => 100
-        );
-        print_array($cust);
-        asort($cust);
-        print_array($cust);
-        ksort($cust);
-        print_array($cust);
-        sort($cust);
-        print_array($cust);
-    ?>
-</body> </html>
+// 2. Сортировка по значениям (asort)
+$byValues = $cust; // копия
+asort($byValues);
 
+echo "<b>Сортировка по значениям (asort):</b><br>";
+foreach ($byValues as $key => $value) {
+    echo "$key => $value<br>";
+}
+echo "<br>";
+
+// 3. Сортировка по ключам (ksort)
+$byKeys = $cust; // копия
+ksort($byKeys);
+
+echo "<b>Сортировка по ключам (ksort):</b><br>";
+foreach ($byKeys as $key => $value) {
+    echo "$key => $value<br>";
+}
+echo "<br>";
+
+// 4. Сортировка через sort() (ключи сбросятся)
+$sorted = $cust; // копия
+sort($sorted);
+
+echo "<b>Сортировка через sort() (ключи теряются):</b><br>";
+foreach ($sorted as $key => $value) {
+    echo "$key => $value<br>";
+}
+?>
+</body>
+</html>

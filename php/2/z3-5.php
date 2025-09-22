@@ -14,45 +14,65 @@
 
 (Использовать листинги 9-2 - 9-10). -->
 
-<html> <head>
-<title> Task 2.6 </title>
-</head> 
+<html>
+<head>
+    <title>Работа с массивами</title>
+</head>
 <body>
+<?php
+// 1. Треугольные числа
+$treug = [];
+for ($n = 1; $n <= 10; $n++) {
+    $treug[] = $n * ($n + 1) / 2;
+}
+echo "Треугольные числа:<br>";
+foreach ($treug as $val) {
+    echo $val . "  "; // два пробела
+}
+echo "<br><br>";
 
-    <?php
-        function print_array($arr) {
-            foreach ($arr as $a)
-                print $a."&nbsp&nbsp";
-            print "<hr/>";
-        }
+// 2. Квадраты
+$kvd = [];
+for ($n = 1; $n <= 10; $n++) {
+    $kvd[] = $n * $n;
+}
+echo "Квадраты чисел:<br>";
+foreach ($kvd as $val) {
+    echo $val . "  ";
+}
+echo "<br><br>";
 
-        for ($n=1; $n<=10; $n++){
-            $treug[$n-1] = $n*($n+1)/2;
-        }
-        print "treug: ";
-        print_array($treug);
+// 3. Объединение
+$rez = array_merge($treug, $kvd);
+echo "Объединённый массив:<br>";
+foreach ($rez as $val) {
+    echo $val . " ";
+}
+echo "<br><br>";
 
-        for ($n=1; $n<=10; $n++){
-            $kvd[$n-1] = $n*$n;
-        }
-        print "kvd: ";
-        print_array($kvd);
+// 4. Сортировка
+sort($rez);
+echo "Отсортированный массив:<br>";
+foreach ($rez as $val) {
+    echo $val . " ";
+}
+echo "<br><br>";
 
-        $res = array_merge($treug, $kvd);
-        print "res - treug and kvd merge: ";
-        print_array($res);
+// 5. Удаление первого элемента
+array_shift($rez);
+echo "После удаления первого элемента:<br>";
+foreach ($rez as $val) {
+    echo $val . " ";
+}
+echo "<br><br>";
 
-        sort($res);
-        print "sorted res: ";
-        print_array($res);
-
-        array_shift($res);
-        print "res without first element: ";
-        print_array($res);
-
-        $res1=array_unique($res);
-        print "res1 - unique res: ";
-        print_array($res1);
-    ?>
-</body> </html>
+// 6. Удаление дублей
+$rez1 = array_unique($rez);
+echo "После удаления повторов (rez1):<br>";
+foreach ($rez1 as $val) {
+    echo $val . " ";
+}
+?>
+</body>
+</html>
 

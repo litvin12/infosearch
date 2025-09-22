@@ -10,7 +10,7 @@
     <?php
         $color = $_GET['color'];
         $size = $_GET['size'];
-        print "<p><font color=\"$color\" size=\"$size\">PHP works!!</font>";
+        print "<p><font color=\"$color\" size=\"$size\">PHP работает!!</font>";
     ?>
 </body> 
 </html>

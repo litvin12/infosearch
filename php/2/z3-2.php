@@ -10,32 +10,41 @@
 
 (Использовать листинг 7-6). -->
 
-<html> <head>
-<title> Task 2.4 </title>
-</head> 
+<html>
+<head>
+    <title>Таблица сложения 10×10</title>
+</head>
 <body>
-    <?php
-        print "<table border=1 cellpadding=5>\n";
-        $color = 'blue';
-        $base_color = "white";
-        $plus_color = "red";
-        for ($y=1;  $y <= 10;  $y++) {
-            print "<tr>\n";
-                for ($x=1;  $x <= 10;  $x++) {
-                    print "\t<td>";
-                    if($x==1 && $y==1) {
-                        print "<p><font color=\"$color\">+</font>";
-                    } elseif($x==1) {
-                        print "<p><font color=\"$color\">$y</font>";
-                    } elseif($y==1) {
-                        print "<p><font color=\"$color\">$x</font>";
-                    } else {
-                        print ($x+$y);
-                    }
-                    print "</td>\n";
-                }
-                print "</tr>\n";
-            }
-        print "</table>";
-    ?>
-</body> </html>
+<?php
+$color = "blue";   // цвет для заголовков строки и столбца
+$max   = 10;
+?>
+<table border="1" cellpadding="5">
+<?php
+for ($y = 0; $y <= $max; $y++) {
+    echo "<tr>\n";
+    for ($x = 0; $x <= $max; $x++) {
+        // Левая верхняя ячейка
+        if ($x == 0 && $y == 0) {
+            echo "\t<td style=\"color:red;\">+</td>\n";
+        }
+        // Заголовок верхней строки
+        elseif ($y == 0) {
+            echo "\t<td style=\"color:$color;\">$x</td>\n";
+        }
+        // Заголовок левого столбца
+        elseif ($x == 0) {
+            echo "\t<td style=\"color:$color;\">$y</td>\n";
+        }
+        // Остальные ячейки = сумма
+        else {
+            $sum = $x + $y;
+            echo "\t<td>$sum</td>\n";
+        }
+    }
+    echo "</tr>\n";
+}
+?>
+</table>
+</body>
+</html>

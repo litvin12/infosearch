@@ -17,10 +17,10 @@ z05-5.php?lang=ru [en/fr/de]
         case "en": 
             print "english";
             break;
-        case "Fr": 
+        case "fr": 
             print "french";
             break;
-        case "De": 
+        case "de": 
             print "dutch";
             break;
         default: 
