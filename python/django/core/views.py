@@ -2,11 +2,21 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import University, Student
 from django.urls import reverse_lazy
+from .forms import UniversityForm
+from django.db.models import Q
 
 class UniversityListView(ListView):
     model = University
     template_name = 'university_list.html'
     context_object_name = 'universities'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return University.objects.filter(
+                Q(full_name__icontains=query) | Q(short_name__icontains=query)
+            )
+        return super().get_queryset()
 
 class UniversityDetailView(DetailView):
     model = University
@@ -15,23 +25,15 @@ class UniversityDetailView(DetailView):
 
 class UniversityCreateView(CreateView):
     model = University
-    fields = ['full_name', 'short_name', 'established_date']
+    form_class = UniversityForm
     template_name = 'university_form.html'
     success_url = reverse_lazy('university_list')
-
-    def form_valid(self, form):
-        self.object = form.save()
-        return super().form_valid(form)
 
 class UniversityUpdateView(UpdateView):
     model = University
-    fields = ['full_name', 'short_name', 'established_date']
+    form_class = UniversityForm
     template_name = 'university_form.html'
     success_url = reverse_lazy('university_list')
-
-    def form_valid(self, form):
-        self.object = form.save()
-        return super().form_valid(form)
 
 class UniversityDeleteView(DeleteView):
     model = University
@@ -42,6 +44,14 @@ class StudentListView(ListView):
     model = Student
     template_name = 'student_list.html'
     context_object_name = 'students'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Student.objects.filter(
+                Q(full_name__icontains=query) | Q(university__full_name__icontains=query)
+            )
+        return super().get_queryset()
 
 class StudentDetailView(DetailView):
     model = Student

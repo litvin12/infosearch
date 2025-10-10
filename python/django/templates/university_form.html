@@ -2,14 +2,60 @@
 <html>
 <head>
     <title>Университет</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hint {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>{{ view.object.pk|default:"Создать университет" }}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        <p class="hint">Формат даты: ГГГГ-ММ-ДД (например, 2023-10-01)</p>
         <button type="submit">Сохранить</button>
     </form>
-    <a href="{% url 'university_list' %}">Назад к списку</a>
+    <a href="{% url 'university_list' %}" class="back-link">Назад к списку</a>
 </body>
 </html>

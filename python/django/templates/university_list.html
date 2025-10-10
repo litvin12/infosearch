@@ -2,10 +2,69 @@
 <html>
 <head>
     <title>Список университетов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            margin-right: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .search-form {
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Список университетов</h1>
-    <a href="{% url 'university_create' %}">Добавить университет</a>
+    <form method="get" class="search-form">
+        <input type="text" name="q" class="search-input" placeholder="Поиск по названию..." value="{{ request.GET.q }}">
+        <button type="submit" class="search-button">Искать</button>
+    </form>
+    <a href="{% url 'university_create' %}" class="button">Добавить университет</a>
     <ul>
         {% for university in universities %}
             <li>
@@ -15,6 +74,6 @@
             </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'student_list' %}">Перейти к списку студентов</a>
+    <a href="{% url 'student_list' %}" class="button">Перейти к списку студентов</a>
 </body>
 </html>

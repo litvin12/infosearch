@@ -2,10 +2,36 @@
 <html>
 <head>
     <title>Список студентов</title>
+    <style>
+        .search-form {
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Список студентов</h1>
-    <a href="{% url 'student_create' %}">Добавить студента</a>
+    <form method="get" class="search-form">
+        <input type="text" name="q" class="search-input" placeholder="Поиск по имени или университету..." value="{{ request.GET.q }}">
+        <button type="submit" class="search-button">Искать</button>
+    </form>
+    <a href="{% url 'student_create' %}" class="button">Добавить студента</a>
     <ul>
         {% for student in students %}
             <li>
@@ -15,6 +41,6 @@
             </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'university_list' %}">Перейти к списку университетов</a>
+    <a href="{% url 'university_list' %}" class="button">Перейти к списку университетов</a>
 </body>
 </html>
