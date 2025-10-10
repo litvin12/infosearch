@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ university.full_name }}</title>
+</head>
+<body>
+    <h1>{{ university.full_name }}</h1>
+    <p>Сокращенное название: {{ university.short_name }}</p>
+    <p>Дата создания: {{ university.established_date }}</p>
+    <a href="{% url 'university_list' %}">Назад к списку</a>
+</body>
+</html>

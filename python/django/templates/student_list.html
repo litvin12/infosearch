@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список студентов</title>
+</head>
+<body>
+    <h1>Список студентов</h1>
+    <a href="{% url 'student_create' %}">Добавить студента</a>
+    <ul>
+        {% for student in students %}
+            <li>
+                <a href="{% url 'student_detail' student.id %}">{{ student.full_name }}</a>
+                <a href="{% url 'student_update' student.id %}">Редактировать</a>
+                <a href="{% url 'student_delete' student.id %}">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'university_list' %}">Перейти к списку университетов</a>
+</body>
+</html>

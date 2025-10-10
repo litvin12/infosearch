@@ -19,11 +19,19 @@ class UniversityCreateView(CreateView):
     template_name = 'university_form.html'
     success_url = reverse_lazy('university_list')
 
+    def form_valid(self, form):
+        self.object = form.save()
+        return super().form_valid(form)
+
 class UniversityUpdateView(UpdateView):
     model = University
     fields = ['full_name', 'short_name', 'established_date']
     template_name = 'university_form.html'
     success_url = reverse_lazy('university_list')
+
+    def form_valid(self, form):
+        self.object = form.save()
+        return super().form_valid(form)
 
 class UniversityDeleteView(DeleteView):
     model = University
@@ -46,11 +54,19 @@ class StudentCreateView(CreateView):
     template_name = 'student_form.html'
     success_url = reverse_lazy('student_list')
 
+    def form_valid(self, form):
+        self.object = form.save()
+        return super().form_valid(form)
+
 class StudentUpdateView(UpdateView):
     model = Student
     fields = ['full_name', 'birth_date', 'university', 'enrollment_year']
     template_name = 'student_form.html'
     success_url = reverse_lazy('student_list')
+
+    def form_valid(self, form):
+        self.object = form.save()
+        return super().form_valid(form)
 
 class StudentDeleteView(DeleteView):
     model = Student
