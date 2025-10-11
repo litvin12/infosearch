@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://django_user:django_password@127.0.0.1:3306/django_db'
@@ -10,7 +9,9 @@ db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
-# Models
+# ------------------------
+# MODELS
+# ------------------------
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), nullable=False, unique=True)
@@ -30,12 +31,16 @@ class Student(db.Model):
     enrollment_year = db.Column(db.Integer, nullable=False)
     university = db.relationship('University', backref=db.backref('students', lazy=True))
 
-# Login manager
+# ------------------------
+# LOGIN MANAGER
+# ------------------------
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# Routes
+# ------------------------
+# ROUTES
+# ------------------------
 @app.route('/')
 def index():
     return redirect(url_for('universities'))
@@ -46,10 +51,10 @@ def login():
         username = request.form['username']
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
-        if user and check_password_hash(user.password, password):
+        if user and user.password == password:
             login_user(user)
             return redirect(url_for('universities'))
-        flash('Invalid credentials')
+        flash('Неверное имя пользователя или пароль')
     return render_template('login.html')
 
 @app.route('/logout')
@@ -58,6 +63,7 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
+# ----- Universities -----
 @app.route('/universities')
 def universities():
     query = request.args.get('q', '')
@@ -97,6 +103,7 @@ def delete_university(id):
     db.session.commit()
     return redirect(url_for('universities'))
 
+# ----- Students -----
 @app.route('/students')
 def students():
     query = request.args.get('q', '')
@@ -112,7 +119,8 @@ def create_student():
         birth_date = request.form['birth_date']
         university_id = request.form['university_id']
         enrollment_year = request.form['enrollment_year']
-        student = Student(full_name=full_name, birth_date=birth_date, university_id=university_id, enrollment_year=enrollment_year)
+        student = Student(full_name=full_name, birth_date=birth_date,
+                          university_id=university_id, enrollment_year=enrollment_year)
         db.session.add(student)
         db.session.commit()
         return redirect(url_for('students'))
