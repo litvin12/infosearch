@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Universities</title>
+</head>
+<body>
+    <h1>Universities</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search..." value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    <a href="{{ url_for('create_university') }}">Add University</a>
+    <ul>
+        {% for university in universities %}
+            <li>
+                {{ university.full_name }}
+                <a href="{{ url_for('update_university', id=university.id) }}">Edit</a>
+                <form method="post" action="{{ url_for('delete_university', id=university.id) }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

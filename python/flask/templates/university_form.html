@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Form</title>
+</head>
+<body>
+    <h1>{{ university.full_name if university else "Add University" }}</h1>
+    <form method="post">
+        <label>Full Name:</label>
+        <input type="text" name="full_name" value="{{ university.full_name if university else '' }}" required>
+        <label>Short Name:</label>
+        <input type="text" name="short_name" value="{{ university.short_name if university else '' }}" required>
+        <label>Established Date:</label>
+        <input type="date" name="established_date" value="{{ university.established_date if university else '' }}" required>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
