@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}{% if student %}Редактирование{% else %}Создание{% endif %} студента{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">{% if student %}Редактирование студента{% else %}Создание студента{% endif %}</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="full_name" class="form-label">ФИО:</label>
+                        <input type="text" class="form-control" id="full_name" name="full_name" 
+                               value="{{ student.full_name if student }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="birth_date" class="form-label">Дата рождения:</label>
+                        <input type="date" class="form-control" id="birth_date" name="birth_date" 
+                               value="{{ student.birth_date if student }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="university_id" class="form-label">Университет:</label>
+                        <select class="form-select" id="university_id" name="university_id" required>
+                            <option value="">Выберите университет</option>
+                            {% for university in universities %}
+                                <option value="{{ university.id }}" 
+                                    {% if student and student.university_id == university.id %}selected{% endif %}>
+                                    {{ university.full_name }} ({{ university.short_name }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="enrollment_year" class="form-label">Год поступления:</label>
+                        <input type="number" class="form-control" id="enrollment_year" name="enrollment_year" 
+                               value="{{ student.enrollment_year if student }}" 
+                               min="1900" max="{{ now.year + 1 }}" required>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-success">
+                            {% if student %}Обновить{% else %}Создать{% endif %}
+                        </button>
+                        <a href="{{ url_for('students') }}" class="btn btn-secondary">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
