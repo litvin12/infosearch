@@ -1,0 +1,141 @@
+<!--
+Создайте файл z4-3a.htm с HTML-формой "Города и памятники" для тестирования знаний.
+В этой форме нужно ввести имя тестируемого, а затем для каждого памятника выбрать, в каком городе он находится.
+Выбор городов - раскрывающийся список. Список вопросов и ответов - в файле vopr.txt.
+Обработка формы выполняется в скрипте z4-3b.php
+-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>z4-3a — Города и памятники</title>
+</head>
+<body>
+    <h3>Тест: Города и памятники</h3>
+    <form method="post" action="z4-3b.php">
+        <label>Имя тестируемого: <input type="text" name="name" required></label>
+        <br><br>
+        <ol>
+            <li>Музей Прадо
+                <select name="q1">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+            <li>Рейхстаг
+                <select name="q2">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+            <li>Оперный театр Ла Скала
+                <select name="q3">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+            <li>Медный Всадник
+                <select name="q4">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+            <li>Стена Плача
+                <select name="q5">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+            <li>Третьяковская галерея
+                <select name="q6">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+            <li>Триумфальная Арка
+                <select name="q7">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+            <li>Статуя Свободы
+                <select name="q8">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+            <li>Тауэр
+                <select name="q9">
+                    <option value="1">Caнкт-Пeтepбypг</option>
+                    <option value="2">Moсква</option>
+                    <option value="3">Иepуcaлим</option>
+                    <option value="4">Mилaн</option>
+                    <option value="5">Пapиж</option>
+                    <option value="6">Maдpид</option>
+                    <option value="7">Лондон</option>
+                    <option value="8">Hью-Йopк</option>
+                    <option value="9">Бepлин</option>
+                </select>
+            </li>
+        </ol>
+        <br>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

@@ -82,3 +82,89 @@ OpenJDK 64-Bit Server VM Microsoft-11369942 (build 21.0.7+6-LTS, mixed mode, sha
 2025-10-11 08:06:24 info: Current extension version: 0.3.1
 2025-10-11 08:06:24 info: Stored extension version: 0.3.1
 2025-10-11 08:06:24 info: No new installation or upgrade detected. Skipping plugin activation tracking.
+2025-11-21 14:07:38 info: Congratulations, your extension "Embold" is now active!
+2025-11-21 14:07:38 info: ************* init ****************
+2025-11-21 14:07:38 info: tempDirectory : /home/codespace/.vscode-remote/extensions/embold-vscode.embold-0.3.2/temp
+2025-11-21 14:07:45 info: Extraction complete for source: /home/codespace/.vscode-remote/extensions/embold-vscode.embold-0.3.2/resources/embold-scanner-archive.zip, destination: /home/codespace/.vscode-remote/extensions/embold-vscode.embold-0.3.2/temp
+2025-11-21 14:07:45 info: Extension installed on machine OS : linux
+2025-11-21 14:07:45 info: Fetched the issues from DB
+2025-11-21 14:07:45 info: Java version installed on machine : 
+openjdk version "21.0.9" 2025-10-21 LTS
+OpenJDK Runtime Environment Microsoft-12574458 (build 21.0.9+10-LTS)
+OpenJDK 64-Bit Server VM Microsoft-12574458 (build 21.0.9+10-LTS, mixed mode, sharing)
+
+2025-11-21 14:07:45 info: Java installed on machine.
+2025-11-21 14:07:46 info: Embold extension version response:{"hasSupport":false,"version":"0.2.1","changeNotes":"<div> <p>Release Date: 30 Apr, 2025 <br><span>Bug fixes and improvements.</span></p> </div>"}
+2025-11-21 14:07:46 info: Current installed embold extension version : 0.3.2
+2025-11-21 14:07:46 info: Latest embold extension version on marketplace : 0.2.1
+2025-11-21 14:07:46 info: Current extension version: 0.3.2
+2025-11-21 14:07:46 info: Stored extension version: 
+2025-11-21 14:07:46 info: New installation or upgrade detected. Tracking plugin activation.
+2025-11-21 14:07:46 info: Plugin activation activity tracked successfully.
+2025-11-21 14:07:46 info: Stored version updated to the current version.
+2025-11-21 14:07:52 info: ******************* Activity tracked successfully: Activity tracked successfully
+2025-11-21 14:10:34 info: Row(s) deleted
+2025-11-21 14:20:14 info: Row(s) deleted
+2025-11-21 14:20:14 info: Row(s) deleted
+2025-11-21 14:20:14 info: Row(s) deleted
+2025-11-21 14:20:14 info: Row(s) deleted
+2025-11-21 14:20:40 info: Row(s) deleted
+2025-11-21 14:20:40 info: Row(s) deleted
+2025-11-21 14:20:41 info: Row(s) deleted
+2025-11-21 14:20:41 info: Row(s) deleted
+2025-11-21 14:20:42 info: Row(s) deleted
+2025-11-21 14:20:42 info: Row(s) deleted
+2025-11-21 14:20:43 info: Row(s) deleted
+2025-11-21 14:20:43 info: Row(s) deleted
+2025-11-21 14:28:48 info: Row(s) deleted
+2025-11-21 14:28:48 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:28:54 info: Row(s) deleted
+2025-11-21 14:29:03 info: Row(s) deleted
+2025-11-21 14:29:03 info: Row(s) deleted
+2025-11-21 14:29:03 info: Row(s) deleted
+2025-11-21 14:36:23 info: Row(s) deleted
+2025-11-21 14:36:26 info: Row(s) deleted
+2025-11-21 14:37:01 info: Row(s) deleted
+2025-11-21 14:37:01 info: Row(s) deleted
+2025-11-21 14:37:21 info: Row(s) deleted
+2025-11-21 14:37:21 info: Row(s) deleted
+2025-11-21 14:37:22 info: Row(s) deleted
+2025-11-21 14:37:22 info: Row(s) deleted
+2025-11-21 14:37:23 info: Row(s) deleted
+2025-11-21 14:37:23 info: Row(s) deleted
+2025-11-21 14:37:24 info: Row(s) deleted
+2025-11-21 14:37:24 info: Row(s) deleted
+2025-11-21 14:37:25 info: Row(s) deleted
+2025-11-21 14:37:25 info: Row(s) deleted
+2025-11-21 14:37:53 info: Row(s) deleted
+2025-11-21 14:37:55 info: Row(s) deleted
+2025-11-21 14:37:55 info: Row(s) deleted
+2025-11-21 14:37:58 info: Row(s) deleted
+2025-11-21 14:37:58 info: Row(s) deleted
+2025-11-21 14:37:59 info: Row(s) deleted
+2025-11-21 14:37:59 info: Row(s) deleted
+2025-11-21 14:38:01 info: Row(s) deleted
+2025-11-21 14:38:01 info: Row(s) deleted
+2025-11-21 14:38:03 info: Row(s) deleted
+2025-11-21 14:38:03 info: Row(s) deleted
+2025-11-21 14:38:05 info: Row(s) deleted
+2025-11-21 14:38:05 info: Row(s) deleted
+2025-11-21 14:38:06 info: Row(s) deleted
+2025-11-21 14:38:06 info: Row(s) deleted
+2025-11-21 14:38:08 info: Row(s) deleted
+2025-11-21 14:38:08 info: Row(s) deleted
+2025-11-21 14:38:10 info: Row(s) deleted
+2025-11-21 14:38:10 info: Row(s) deleted
+2025-11-21 14:38:13 info: Row(s) deleted
+2025-11-21 14:38:13 info: Row(s) deleted
