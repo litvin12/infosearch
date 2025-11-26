@@ -17,7 +17,6 @@ for i in range(n):
         row[j] = triangle[i-1][j-1] + triangle[i-1][j]
     triangle.append(row)
 
-# Выводим результат
 print(f"\nПервые {n} строк треугольника Паскаля:")
 for row in triangle:
     print(' '.join(map(str, row)))

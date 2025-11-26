@@ -17,51 +17,70 @@
         );
 
         function vid_structure($conn, $table) {
-            $result = mysqli_query($conn, "DESC $table");
-            $num_rows = mysqli_num_rows($result);
-            $num_fields = mysqli_num_fields($result);
-
-            print "<h4>Content of table $table</h4>\n";
-            print "<table border=1 cellpadding=5>\n";
-            print "<tr>";
-            for ($x = 0; $x < $num_fields; $x++) {
-                $name = mysqli_fetch_field_direct($result, $x)->name;
-                print "\t<th><i>$name</i></th>";
+            if (!$conn) {
+                echo "<p style='color: red;'>⚠️ Соединение с БД не установлено</p>";
+                return;
             }
-            print "</tr>\n";
-
-            while ($a_row = mysqli_fetch_row($result)) {
-                print "<tr>";
-                foreach ($a_row as $field)
-                    print "\t<td><i>$field</i></td>";
-                print "</tr>\n";
+            
+            $safe_table = mysqli_real_escape_string($conn, $table);
+            $res = mysqli_query($conn, "DESCRIBE `" . $safe_table . "`");
+            
+            echo "<h3>Структура таблицы «" . htmlspecialchars($table) . "»</h3>\n";
+            
+            if (!$res) {
+                echo "<p style='color: red;'>❌ Ошибка: " . htmlspecialchars(mysqli_error($conn)) . "</p>\n";
+                return;
             }
-            print "</table>\n";
+            
+            echo "<table border='1'>\n";
+            echo "<tr><th>Field</th><th>Type</th><th>Null</th><th>Key</th><th>Default</th><th>Extra</th></tr>\n";
+            
+            while ($row = mysqli_fetch_assoc($res)) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($row['Field']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['Type']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['Null']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['Key']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['Default']) . "</td>";
+                echo "<td>" . htmlspecialchars($row['Extra']) . "</td>";
+                echo "</tr>\n";
+            }
+            echo "</table>\n";
         }
 
         function vid_content($conn, $table) {
-            $result = mysqli_query($conn, "SELECT * FROM $table");
-            $num_rows = mysqli_num_rows($result);
-            $num_fields = mysqli_num_fields($result);
-            $info = mysqli_query($conn, "DESC $table");
+            if (!$conn) {
+                echo "<p style='color: red;'>⚠️ Соединение с БД не установлено</p>";
+                return;
+            }
             
-            print "<h4>Content of table $table</h4>\n";
-            print "<table border=1 cellpadding=5>\n";
-            print "<tr>";
-            for ($x = 0; $x < $num_fields; $x++) {
-                $name = mysqli_fetch_field_direct($result, $x)->name;
-                $transl = $rus_name[$name];
-                print "\t<th>$transl<br>$name</br></th>";
+            $safe_table = mysqli_real_escape_string($conn, $table);
+            $res = mysqli_query($conn, "SELECT * FROM `" . $safe_table . "` LIMIT 1000");
+            
+            echo "<h3>Содержимое таблицы «" . htmlspecialchars($table) . "»</h3>\n";
+            
+            if (!$res) {
+                echo "<p style='color: red;'>❌ Ошибка: " . htmlspecialchars(mysqli_error($conn)) . "</p>\n";
+                return;
             }
-            print "</tr>\n";
-
-            while ($a_row = mysqli_fetch_row($result)) {
-                print "<tr>";
-                foreach ($a_row as $field)
-                    print "\t<td>$field</td>";
-                print "</tr>\n";
+            
+            $fields = mysqli_fetch_fields($res);
+            echo "<table border='1'>\n<tr>\n";
+            
+            foreach ($fields as $f) {
+                echo "<th>" . htmlspecialchars($f->name) . "</th>";
             }
-            print "</table>\n";
+            echo "</tr>\n";
+            
+            while ($row = mysqli_fetch_assoc($res)) {
+                echo "<tr>\n";
+                foreach ($fields as $f) {
+                    echo "<td>" . htmlspecialchars($row[$f->name]) . "</td>";
+                }
+                echo "</tr>\n";
+            }
+            echo "</table>\n";
+            echo '<p><a href="z10-1.htm">← Назад к выбору таблицы</a></p>';
         }
         foreach ($structure as $table){
 	        vid_structure($conn, $table);
