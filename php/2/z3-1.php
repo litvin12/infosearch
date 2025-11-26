@@ -13,34 +13,38 @@
 (Использовать листинги 7-1 и 7-6). -->
 
 <html>
+
 <head>
     <title>Таблица Пифагора 10×10</title>
 </head>
-<body>
-<?php
-$base_color = "white";
-$diagonal_color = "grey";
 
-$y = 1;
-?>
-<table border="1" cellpadding="5">
-<?php
-while ($y <= 10) {
-    echo "<tr>\n";
-    $x = 1;
-    while ($x <= 10) {
-        $color = ($x == $y) ? $diagonal_color : $base_color;
-        ?>
-        <td style="background:<?= $color ?>">
-            <?= $x * $y ?>
-        </td>
+<body>
+    <?php
+    $base_color = "white";
+    $diagonal_color = "grey";
+
+    $y = 1;
+    ?>
+    <!-- border — рамка таблицы, cellpadding — отступ внутри ячеек -->
+    <table border="1" cellpadding="5">
         <?php
-        $x++;
-    }
-    echo "</tr>\n";
-    $y++;
-}
-?>
-</table>
+        while ($y <= 10) {
+            echo "<tr>\n"; // перенос строки
+            $x = 1;
+            while ($x <= 10) {
+                $color = ($x == $y) ? $diagonal_color : $base_color;
+                ?>
+                <td style="background:<?= $color ?>">
+                    <?= $x * $y ?>
+                </td>
+                <?php
+                $x++;
+            }
+            echo "</tr>\n";
+            $y++;
+        }
+        ?>
+    </table>
 </body>
+
 </html>

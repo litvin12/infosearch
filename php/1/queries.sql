@@ -17,7 +17,6 @@ SELECT sname, city FROM sal WHERE city = 'London' AND comm > 0.11;
 SELECT * FROM cust WHERE rating <= 200 AND city != 'Rome';
 
 -- Запросите двумя способами все заказы на 3 и 5 октября 1990 г.
--- Способ 1: с использованием BETWEEN
 SELECT * FROM ord WHERE odate IN ('1990-10-03', '1990-10-05');
 
 -- Напишите запрос, который может вывести всех покупателей, чьи имена начинаются с буквы, попадающей в диапазон от A до G.

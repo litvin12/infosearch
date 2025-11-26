@@ -8,28 +8,40 @@
 -->
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="utf-8">
     <title>z4-1a — Выбор выравнивания</title>
 </head>
+
 <body>
     <h3>Выберите выравнивание текста в ячейке</h3>
+
     <form method="post" action="z4-1b.php">
+
         <fieldset>
             <legend>Горизонтальное (align) — радиокнопки</legend>
+
             <label><input type="radio" name="align" value="left" checked> left</label>
             <label><input type="radio" name="align" value="center"> center</label>
             <label><input type="radio" name="align" value="right"> right</label>
         </fieldset>
+
         <br>
+
         <fieldset>
-            <legend>Вертикальное (valign) — флажки (можно выбрать один)</legend>
-            <label><input type="checkbox" name="valign[]" value="top" checked> top</label>
-            <label><input type="checkbox" name="valign[]" value="middle"> middle</label>
-            <label><input type="checkbox" name="valign[]" value="bottom"> bottom</label>
+            <legend>Вертикальное (valign) — радиокнопки</legend>
+
+            <label><input type="radio" name="valign" value="top" checked> top</label>
+            <label><input type="radio" name="valign" value="middle"> middle</label>
+            <label><input type="radio" name="valign" value="bottom"> bottom</label>
         </fieldset>
+
         <br>
+
         <button type="submit">Выполнить</button>
+
     </form>
 </body>
+
 </html>

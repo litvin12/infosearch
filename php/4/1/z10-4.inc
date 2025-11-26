@@ -1,11 +1,14 @@
 <?php
+    $host = "127.0.0.1";
     $user = "root";
-    $pass = ""; 
-    $db = "sample";
-    $conn = mysqli_connect("localhost", $user, $pass, $db);
-    $table = "domains_brNN";
-    if (!$conn) die("Нет соединения с MySQL");
-        
-    mysqli_select_db($conn, $db) or die ("Нельзя открыть $db: " . mysqli_error($conn));
+    $pass = "rootpass";
+    $db   = "sample_database"; 
+
+    $conn = mysqli_connect($host, $user, $pass, $db);
+
+    if (!$conn) {
+        die("Нет соединения с MySQL: " . mysqli_connect_error());
+    }
+
     return $conn;
-?> 
+?>

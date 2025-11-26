@@ -45,7 +45,7 @@
         <button type="submit">Выполнить</button>
     </form>
 
-<?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+<?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?> <!-- отрисовываем ток если пост -->
     <h4>Результат</h4>
     <table border="1">
         <tr>

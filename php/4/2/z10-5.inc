@@ -45,7 +45,6 @@ function vid_content($table) {
         'university' => 'Университет'
     );
 
-    // Выводим шапку таблицы
     $fields = $res->fetch_fields();
     echo "<table border=1>\n<tr>\n";
     foreach ($fields as $f) {
@@ -55,7 +54,7 @@ function vid_content($table) {
     }
     echo "\n</tr>\n";
 
-    // Выводим строки
+    // вывод строк
     while ($row = $res->fetch_assoc()) {
         echo "<tr>\n";
         foreach ($fields as $f) {
