@@ -4,10 +4,13 @@
 <title> Task 3.4</title> </head>
 <body>
     <form action="ls10-5.php" method="post">
+        <!-- p - тег абзаца -->
         <p>Enter your name
         <p><input type="text" name="user">
         <p>What do you like doing in your free time? <br>
         (multiple answer is available)
+<!-- тут вложенные массивы как я понимаю поддерживаются через ключ-значение, автоматически создаются ключ-значение,
+  где каждый вложенный массив -- ключ-цифра, если бы я написал hobby[active], то ключ был бы active -->
         <p><input type="checkbox" name="hobby[]" value="listen music">listnening to music
         <p><input type="checkbox" name="hobby[]" value="read books">reading books
         <p><input type="checkbox" name="hobby[]" value="watch TV">watching TV
