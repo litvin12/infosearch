@@ -54,7 +54,7 @@
                 return;
             }
             
-            $safe_table = mysqli_real_escape_string($conn, $table);
+            $safe_table = mysqli_real_escape_string($conn, $table); <!-- защита от инъекций, prepare нельзя использовать т.к. имена таблиц, колонок и тп параметризовать не умеет -->
             $res = mysqli_query($conn, "SELECT * FROM `" . $safe_table . "` LIMIT 1000");
             
             echo "<h3>Содержимое таблицы «" . htmlspecialchars($table) . "»</h3>\n";
