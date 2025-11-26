@@ -3,7 +3,7 @@
 $DB_HOST = getenv('DB_HOST') ? getenv('DB_HOST') : '127.0.0.1';
 $DB_USER = getenv('DB_USER') ? getenv('DB_USER') : 'root';
 $DB_PASS = getenv('DB_PASS') ? getenv('DB_PASS') : 'rootpass';
-$DB_NAME = 'sample';
+$DB_NAME = 'sample_database';
 
 $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 if ($mysqli->connect_errno) {
@@ -78,7 +78,7 @@ if ($all && $all->num_rows>0) {
         <label>Новое значение: <input type="text" name="field_value" value=""></label>
         <br>
         <input type="hidden" name="id" value="<?= htmlspecialchars($current_row['id']) ?>">
-        <button type="submit">Заменить</button>
+        <button type="submit">Исправить</button>
     </form>
     <p>Текущие значения:</p>
     <ul>

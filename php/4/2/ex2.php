@@ -3,7 +3,7 @@
 $DB_HOST = getenv('DB_HOST') ? getenv('DB_HOST') : '127.0.0.1';
 $DB_USER = getenv('DB_USER') ? getenv('DB_USER') : 'root';
 $DB_PASS = getenv('DB_PASS') ? getenv('DB_PASS') : 'rootpass';
-$DB_NAME = 'sample';
+$DB_NAME = 'sample_database';
 
 $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 if ($mysqli->connect_errno) {
@@ -38,11 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <form method="post" action="">
-        <label>Имя: <input type="text" name="name"></label><br>
+        <label>Имя: <input type="text" name="name" required></label><br>
         <label>Город: <input type="text" name="city"></label><br>
         <label>Адрес: <input type="text" name="address"></label><br>
-        <label>Дата рождения (YYYY-MM-DD): <input type="text" name="birthday"></label><br>
-        <label>E-mail: <input type="text" name="mail"></label><br>
+        <label>Дата рождения (YYYY-MM-DD): <input type="date" name="birthday"></label><br> <!-- чтоб некорректное ввести убрать date -->
+        <label>E-mail: <input type="text" name="mail" required></label><br>
         <button type="submit">Добавить</button>
     </form>
     <p><a href="ex3.php">Посмотреть все записи</a></p>
